@@ -1,0 +1,114 @@
+/ {
+	chosen {
+		/delete-property/ zephyr,canbus;
+	};
+
+	aliases {
+		spare-uart = &usart1;
+	};
+
+	zephyr,user {
+		io-channels = <&adc1 0>, <&adc1 13>;
+	};
+};
+
+&zephyr_udc0 {
+	status = "disabled";
+};
+
+&usart1 {
+	pinctrl-0 = <&usart1_tx_pc4 &usart1_rx_pc5>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	status = "okay";
+};
+
+&usart1_rx_pc5 {
+	bias-pull-up;
+};
+
+&rtc {
+	status = "disabled";
+};
+
+&iwdg {
+	status = "disabled";
+};
+
+&timers3 {
+	status = "disabled";
+};
+
+&pwm3 {
+	status = "disabled";
+};
+
+&timers15 {
+	status = "disabled";
+};
+
+&pwm15 {
+	status = "disabled";
+};
+
+&i2c1 {
+	status = "disabled";
+};
+
+&i2c2 {
+	status = "disabled";
+};
+
+&spi1 {
+	status = "disabled";
+};
+
+&spi2 {
+	status = "disabled";
+};
+
+&adc1 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+	channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <12>;
+	};
+
+	channel@d {
+		reg = <13>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <12>;
+	};
+};
+
+&die_temp {
+	status = "disabled";
+};
+
+&dac1 {
+	status = "disabled";
+};
+
+&fdcan1 {
+	status = "disabled";
+};
+
+&fdcan2 {
+	status = "disabled";
+};
+
+&vref {
+	status = "okay";
+};
+
+&vbat {
+	status = "disabled";
+};

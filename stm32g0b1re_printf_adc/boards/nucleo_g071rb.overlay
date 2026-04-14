@@ -1,0 +1,45 @@
+/ {
+	aliases {
+		spare-uart = &usart1;
+	};
+
+	zephyr,user {
+		io-channels = <&adc1 0>, <&adc1 13>;
+	};
+};
+
+&usart1 {
+	pinctrl-0 = <&usart1_tx_pc4 &usart1_rx_pc5>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	status = "okay";
+};
+
+&usart1_rx_pc5 {
+	bias-pull-up;
+};
+
+&adc1 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <12>;
+	};
+
+	channel@d {
+		reg = <13>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <12>;
+	};
+};
+
+&vref {
+	status = "okay";
+};
