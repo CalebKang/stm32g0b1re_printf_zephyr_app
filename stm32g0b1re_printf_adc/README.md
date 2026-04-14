@@ -51,3 +51,11 @@ Typical files:
 
 The default console on this board is the ST-LINK virtual COM port (`USART2` on
 `PA2/PA3`).
+
+## Printf
+PA0 raw=458, VREFINT raw=1508, VDDA=3292 mV, PA0=0.368 V
+PA0 raw=4093, VREFINT raw=1505, VDDA=3299 mV, PA0=3.297 V
+PA0 raw=4087, VREFINT raw=1505, VDDA=3299 mV, PA0=3.293 V
+PA0 raw=4091, VREFINT raw=1505, VDDA=3299 mV, PA0=3.296 V
+PA0 raw=4095, VREFINT raw=1505, VDDA=3299 mV, PA0=3.299 V
+PA0 raw=4095, VREFINT raw=1505, VDDA=3299 mV, PA0=3.299 V
